@@ -1,5 +1,5 @@
 const express = require('express');
-const port = 8000;
+const port = 3000;
 const server = express();
 const users = require('./models/Users');
 
