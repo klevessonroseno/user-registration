@@ -5,6 +5,9 @@
   "repository": "https://github.com/klevessonroseno/user-registration.git",
   "author": "klevessonroseno <klevessonroseno42@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/app/server.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
