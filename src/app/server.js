@@ -12,4 +12,10 @@ server.get('/users/:id', (req, res) => {
     return res.json(users[id]);
 });
 
+server.post('/users', (req, res) => {
+    const { name, age } = req.body;
+    users.push({ name, age });
+    return res.json(users);
+});
+
 server.listen(port, () => console.log(`Server at port ${port}`));
