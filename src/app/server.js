@@ -27,4 +27,10 @@ server.put('/users/:id', (req, res) => {
     return res.status(200).json({ message: 'User updated'});
 });
 
+server.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+    users.splice(id, 1);
+    return res.status(200).json('User deleted');
+});
+
 server.listen(port, () => console.log(`Server at port ${port}`));
