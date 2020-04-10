@@ -14,6 +14,15 @@ server.use((req, res, next) => {
     console.timeEnd('Request');
 });
 
+function checkIfNameAndAgeExists(req, res, next){ 
+    const { name, age } = req.body;
+    if(!name || !age){
+        return res.status(400).json({ message: 'Name and age are required' });
+    }
+
+    return next();
+}
+
 server.get('/users', (req, res) => res.json(users));
 
 server.get('/users/:id', (req, res) => {
@@ -21,13 +30,13 @@ server.get('/users/:id', (req, res) => {
     return res.json(users[id]);
 });
 
-server.post('/users', (req, res) => {
+server.post('/users', checkIfNameAndAgeExists, (req, res) => {
     const { name, age } = req.body;
     users.push({ name, age });
     return res.json(users);
 });
 
-server.put('/users/:id', (req, res) => {
+server.put('/users/:id', checkIfNameAndAgeExists, (req, res) => {
     const { id } = req.params;
     const { name, age } = req.body;
     
