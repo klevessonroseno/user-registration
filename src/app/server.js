@@ -18,4 +18,13 @@ server.post('/users', (req, res) => {
     return res.json(users);
 });
 
+server.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, age } = req.body;
+    
+    users[id] = { name, age };
+
+    return res.status(200).json({ message: 'User updated'});
+});
+
 server.listen(port, () => console.log(`Server at port ${port}`));
