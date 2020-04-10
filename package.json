@@ -1,0 +1,8 @@
+{
+  "name": "user-registration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/klevessonroseno/user-registration.git",
+  "author": "klevessonroseno <klevessonroseno42@gmail.com>",
+  "license": "MIT"
+}
