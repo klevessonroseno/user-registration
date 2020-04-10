@@ -5,6 +5,15 @@ const users = require('./models/Users');
 
 server.use(express.json());
 
+server.use((req, res, next) => {
+    console.time('Request');
+    console.log(`Method: ${req.method} URL: ${req.url}`);
+    
+    next();
+
+    console.timeEnd('Request');
+});
+
 server.get('/users', (req, res) => res.json(users));
 
 server.get('/users/:id', (req, res) => {
