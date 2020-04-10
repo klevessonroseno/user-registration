@@ -16,4 +16,11 @@ const User = class User {
         this.age = _age;
     }
 }
-module.exports = User;
+const users = new Array(
+    new User('Maria', 25),
+    new User('José', 28),
+    new User('Juliana', 30),
+    new User('Bárbara', 27)
+);
+
+module.exports = users;
