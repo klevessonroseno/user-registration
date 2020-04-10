@@ -38,10 +38,7 @@ function checkIfUserExistsInArray(req, res, next){
 
 server.get('/users', (req, res) => res.json(users));
 
-server.get('/users/:id', checkIfUserExistsInArray, (req, res) => {
-    const { id } = req.params;
-    return res.json(users[id]);
-});
+server.get('/users/:id', checkIfUserExistsInArray, (req, res) => res.status(200).json(req.user));
 
 server.post('/users', checkIfNameAndAgeExists, (req, res) => {
     const { name, age } = req.body;
